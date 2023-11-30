@@ -18,10 +18,10 @@ RUN source /ros_entrypoint.sh && catkin_make
 RUN apt-get -y update
 RUN apt-get -y install git
 WORKDIR /catkin_ws/src
-RUN git clone https://github.com/jmscslgroup/profproject.git
-RUN git clone https://github.com/jmscslgroup/carsimplesimulink.git
-RUN git clone https://github.com/jmscslgroup/subtractor.git
-RUN git clone https://github.com/jmscslgroup/odometer.git
+#RUN git clone https://github.com/jmscslgroup/profproject.git
+#RUN git clone https://github.com/jmscslgroup/carsimplesimulink.git
+#RUN git clone https://github.com/jmscslgroup/subtractor.git
+#RUN git clone https://github.com/jmscslgroup/odometer.git
 #RUN git clone https://github.com/marystirling/Autonomous-Vehicles-ACC-Project.git
 # you only get one command
 # CMD roscore
