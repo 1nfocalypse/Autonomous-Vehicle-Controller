@@ -6,6 +6,11 @@ When running, the purpose of our project is to see if it can change the set spee
 rostopic pub -r 10 /new_set_speed std_msgs/Float64 "data: 50"
 ```
 
+- The controller is only meant to be used in an isolated area. There is no consideration for a lead vehicle in order to simplify controller logic.
+- Expected behavior is that the vehicle will reach the set speed within 10 seconds, however, there are some edge cases in which this may not occur, delineated below.
+- Iterator execution speed may cause stuttering in acceleration changes. We are unsure if the iteration technique will mirror the simulation in application.
+- Large changes in acceleration will likely not be successful due to acceleration dampening and non-ideal dynamics.
+
 ### SIMULINK FILES
 
 1. ol_simulation.slx -> open loop simulation
