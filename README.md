@@ -32,6 +32,10 @@ vehicles present a unique possible solution to many problems that arise from hum
 to help mitigate traffic buildup as a result of speed differences as commonly observed on highways. While currently inadequate, this controller serves as a basis for this task by being able to accept arbitrary input and generate both a 
 feasible and meaningful path to a target speed, then hold it, in a manner that avoids extreme acceleration that would likely be harsh on the users.
 
+## Paper
+The redacted paper for this project can be found in the file "Pred-Velo-Mdl-Ctrl-AVs-REDACTED-1-1-1.pdf". An unredacted copy can be made available on request. Contact information for such requests can be found on my website, as linked on
+my profile.
+
 ## Further Problems
 Further points of interest include the utilization of an error correction function to account for things such as friction and wind resistance. A major point of focus will be in the inclusion of safety mechanisms, as this controller offers
 none at the moment. Potential sources for these include adaptive cruise control designs. Another point of interest is providing a means of abstracting roads, then utilizing this abstraction to allow for efficient routing and pathfinding,
