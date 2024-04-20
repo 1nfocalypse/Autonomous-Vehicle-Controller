@@ -33,7 +33,7 @@ to help mitigate traffic buildup as a result of speed differences as commonly ob
 feasible and meaningful path to a target speed, then hold it, in a manner that avoids extreme acceleration that would likely be harsh on the users.
 
 ## Paper
-The redacted paper for this project can be found in the file "Pred-Velo-Mdl-Ctrl-AVs-REDACTED-1-1-1.pdf". An unredacted copy can be made available on request. Contact information for such requests can be found on my website, as linked on
+The redacted paper for this project can be found [here](Pred-Velo-Mdl-Ctrl-AVs-REDACTED-1-1-1.pdf). An unredacted copy can be made available on request. Contact information for such requests can be found on my website, as linked on
 my profile.
 
 ## Further Problems
