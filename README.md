@@ -12,7 +12,7 @@
 </p>
 
 
-# Predictive Velocity Modelling and Control
+## Predictive Velocity Modelling and Control
 This project is focused on utilizing an open loop system to allow for arbitrary speed input in autonomous vehicles. This is accomplished by processing the entered value, then generating an approximate Sigmoid function
 via a mesh and natural cubic spline interpolation. From this point, a numerical derivative is taken to yield a smooth acceleration or deceleration to the desired speed, which is iteratively fed to the vehicle. Once this speed is 
 achieved, differences and deviations from it will generate their own microadjustments, allowing the controller to also function as a form of cruise control. 
