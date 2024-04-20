@@ -1,56 +1,38 @@
-# wok
-
-### TEST DRIVE:
-When running, the purpose of our project is to see if it can change the set speed with geographic positional information. For testing purposes, instead of relying on GPS and hard-coding this, we want to manually just input a new set speed. The command to do this while running our ros controller is this (changing out 50 for desired set speed:
-```shell
-rostopic pub -r 10 /new_set_speed std_msgs/Float64 "data: 50"
-```
-
-- The controller is only meant to be used in an isolated area. There is no consideration for a lead vehicle in order to simplify controller logic.
-- Expected behavior is that the vehicle will reach the set speed within 10 seconds, however, there are some edge cases in which this may not occur, delineated below.
-- Iterator execution speed may cause stuttering in acceleration changes. We are unsure if the iteration technique will mirror the simulation in application.
-- Large changes in acceleration will likely not be successful due to acceleration dampening and non-ideal dynamics.
-
-### SIMULINK FILES
-
-1. ol_simulation.slx -> open loop simulation
-
-2. cl_simulation.slx -> closed loop simulation
-
-3. okayestcontroller.slx -> ros topics code generator
-
-### TO SET UP DOCKER
-1. Go to the directory where you have the Dockerfile downloaded. Make sure to have the bag file in the same directory and launch files downloaded in same directory.
-
-2. Build the Docker container:
-
-    ```shell
-    docker build -t test:latest .
-    ```
-
-3. Create a Docker volume named `catkin_ws` using the following command:
-
-    ```shell
-    docker volume create catkin_ws
-    ```
-
-4. Run the container with the volume mounted using this command:
-
-    ```shell
-    docker run --mount type=bind,source=.,target=/catkin_ws -it test:latest
-    ```
-
-5. Change the directory to `catkin_ws` within the container:
-
-    ```shell
-    cd /catkin_ws
-    ```
-
-6. Build your ROS workspace:
-
-    ```shell
-    catkin_make
-    ```
+<p align="center">
+  <a href="https://github.com/1nfocalypse/Autonomous-Vehicle-Controller">
+	<img alt="AV-Controller" src="https://i.imgur.com/o4so5MG.png"/>
+  </a>
+</p>
+<h2 align="center">Autonomous Vehicle Controller</h3>
+<h3 align="center">
+  Predictive Velocity Modelling and Control in Autonomous Vehicles
+</h2>
+<p align="center">
+  By <a href="https://github.com/1nfocalypse">1nfocalypse</a>, <a href="https://github.com/marystirling">marystirling</a>, <a href="https://github.com/jroge">jroge</a>, and Ryan
+</p>
 
 
+# Predictive Velocity Modelling and Control
+This project is focused on utilizing an open loop system to allow for arbitrary speed input in autonomous vehicles. This is accomplished by processing the entered value, then generating an approximate Sigmoid function
+via a mesh and natural cubic spline interpolation. From this point, a numerical derivative is taken to yield a smooth acceleration or deceleration to the desired speed, which is iteratively fed to the vehicle. Once this speed is 
+achieved, differences and deviations from it will generate their own microadjustments, allowing the controller to also function as a form of cruise control. 
 
+While solidly in a fledgeling phase, the project demonstrates promise to allow for automated speed changes based on environment context, i.e. automatically adapting speed based on speed limits. Further changes needed include an error
+correction to account for externalities, such as wind resistance and friction, along with safety implementations.
+
+## Goals
+- Obtain user desired speed
+- Generate a mesh of data points approximating a Sigmoid curve to yield a smooth velocity change
+- Interpolate these points, and obtain a numerical derivative to find an acceleration value
+- Input the acceleration value into the vehicle, accelerating or decelerating as required
+
+## Applications
+The intended application of this project is to serve as a basis for adaptive speed changes based on contextual environment, and to serve in the larger task of efficient routing. Traffic is a major field of research, and autonomous 
+vehicles present a unique possible solution to many problems that arise from human drivers. One stipulation of this, however, is consistent speed. By being able to define a certain speed based on the context of an area, one would be able
+to help mitigate traffic buildup as a result of speed differences as commonly observed on highways. While currently inadequate, this controller serves as a basis for this task by being able to accept arbitrary input and generate both a 
+feasible and meaningful path to a target speed, then hold it, in a manner that avoids extreme acceleration that would likely be harsh on the users.
+
+## Further Problems
+Further points of interest include the utilization of an error correction function to account for things such as friction and wind resistance. A major point of focus will be in the inclusion of safety mechanisms, as this controller offers
+none at the moment. Potential sources for these include adaptive cruise control designs. Another point of interest is providing a means of abstracting roads, then utilizing this abstraction to allow for efficient routing and pathfinding,
+with the speed of the vehicle being automated to help aid in traffic mitigation along these paths. 
