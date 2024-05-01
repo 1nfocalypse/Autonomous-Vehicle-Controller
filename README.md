@@ -8,7 +8,7 @@
   Predictive Velocity Modelling and Control in Autonomous Vehicles
 </h2>
 <p align="center">
-  By <a href="https://github.com/1nfocalypse">1nfocalypse</a>, <a href="https://github.com/marystirling">marystirling</a>, <a href="https://github.com/jroge">jroge</a>, and Ryan
+  By <a href="https://github.com/1nfocalypse">1nfocalypse</a>, <a href="https://github.com/marystirling">marystirling</a>, <a href="https://github.com/jroge">jroge</a>, and <a href="https://github.com/bearrules11">bearrules11</a>
 </p>
 
 
